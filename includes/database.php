@@ -54,7 +54,7 @@ function update($table, $dataUpdate, $condition=''){
    return query($sql, $dataUpdate);
 }
 
-function delete($table, $condition=''){
+function deleteDtb($table, $condition=''){
     if (!empty($condition)){
         $sql = "DELETE FROM $table WHERE $condition";
     }elsE{

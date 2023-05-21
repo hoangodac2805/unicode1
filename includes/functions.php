@@ -182,4 +182,16 @@ function form_error($fieldName,$errors,$beforeHtml='',$afterHtml=''){
 function old($fieldName,$oldData,$default = null){
     return (!empty($oldData[$fieldName]) ? $oldData[$fieldName] : $default);
 }
-?>
+function isLogin(){
+    $checkLogin = false;
+    if (getSession('loginToken')) {
+        $tokenLogin = getSession('loginToken');
+        $queryToken = firstRaw("SELECT user_id from logintoken WHERE token='$tokenLogin'");
+        if (!empty($queryToken)) {
+            $checkLogin = true;
+        } else {
+            removeSession('loginToken');
+        }
+    }
+   return $checkLogin;
+}

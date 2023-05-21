@@ -3,9 +3,7 @@ if (!defined('_INCODE'))
     die('Access Dined...');
 
 layout('header-login');
-?>
 
-<?php
 // File này chứa chức năng kích hoạt tài khoản
 echo '<div class="container">';
 $token = getBody()['token'];
